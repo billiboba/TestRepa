@@ -1,0 +1,5 @@
+C:\Users\Roman\source\repos\Web3Lab\DataBase3Lab\obj\Debug\net7.0\DataBase3Lab.csproj.AssemblyReference.cache
+C:\Users\Roman\source\repos\Web3Lab\DataBase3Lab\obj\Debug\net7.0\DataBase3Lab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roman\source\repos\Web3Lab\DataBase3Lab\obj\Debug\net7.0\DataBase3Lab.AssemblyInfoInputs.cache
+C:\Users\Roman\source\repos\Web3Lab\DataBase3Lab\obj\Debug\net7.0\DataBase3Lab.AssemblyInfo.cs
+C:\Users\Roman\source\repos\Web3Lab\DataBase3Lab\obj\Debug\net7.0\DataBase3Lab.csproj.CoreCompileInputs.cache

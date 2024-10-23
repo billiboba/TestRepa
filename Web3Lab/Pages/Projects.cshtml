@@ -1,0 +1,70 @@
+﻿@page
+@model Web3Lab.Pages.ProjectsModel
+@{
+    ViewData["Title"] = "Управление проектами";
+}
+
+<h2>Управление проектами</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post" asp-page-handler="AddProject">
+    <button type="submit">Добавить проект</button>
+</form>
+
+<h3>Список проектов</h3>
+
+@if (Model.Projects.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Компания-заказчик</th>
+                <th>Компания-исполнитель</th>
+                <th>Приоритет</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in Model.Projects)
+            {
+                <tr>
+                    <td>@project.Name</td>
+                    <td>@project.ClientCompany</td>
+                    <td>@project.ContractorCompany</td>
+                    <td>@project.Priority</td>
+                    <td>
+                        <form method="post" asp-page-handler="EditProject" asp-route-id="@project.Id">
+                            <button type="submit">Редактировать</button>
+                        </form>
+
+                        <form method="post" asp-page-handler="DeleteProject" asp-route-id="@project.Id">
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Проектов нет.</p>
+}
+
+<h3>Сортировка проектов</h3>
+<form method="post" asp-page-handler="SortProjects">
+    <label for="SortOption">Выберите способ сортировки:</label>
+    <select id="SortOption" name="SortOption">
+        <option value="Priority">По приоритету</option>
+        <option value="Name">По названию</option>
+        <option value="Date">По дате</option>
+    </select>
+    <button type="submit">Отсортировать</button>
+</form>

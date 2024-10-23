@@ -1,0 +1,18 @@
+﻿@page
+@model Web3Lab.Pages.MenuModel
+@{
+    ViewData["Title"] = "Меню управления";
+}
+
+<h1>Меню управления</h1>
+
+@if (ViewData["Message"] != null)
+{
+    <p>@ViewData["Message"]</p>
+}
+
+<form method="post">
+    <button type="submit" asp-page-handler="Projects" style="padding: 10px 20px; background-color: lightblue;">Проекты</button>
+    <button type="submit" asp-page-handler="Employees" style="padding: 10px 20px; background-color: lightgreen;">Сотрудники</button>
+    <button type="submit" asp-page-handler="Tasks" style="padding: 10px 20px; background-color: lightcoral;">Задачи</button>
+</form>

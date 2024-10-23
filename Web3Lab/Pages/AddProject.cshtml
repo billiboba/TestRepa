@@ -1,0 +1,46 @@
+﻿@page
+@model Web3Lab.Pages.AddProjectModel
+@{
+    ViewData["Title"] = "Добавить проект";
+}
+
+<h2>Добавить проект</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post">
+    <div>
+        <label for="Name">Название проекта:</label>
+        <input type="text" id="Name" name="Name" required />
+    </div>
+    <div>
+        <label for="ClientCompany">Компания-заказчик:</label>
+        <input type="text" id="ClientCompany" name="ClientCompany" required />
+    </div>
+    <div>
+        <label for="ContractorCompany">Компания-исполнитель:</label>
+        <input type="text" id="ContractorCompany" name="ContractorCompany" required />
+    </div>
+    <div>
+        <label for="StartDate">Дата начала:</label>
+        <input type="date" id="StartDate" name="StartDate" required />
+    </div>
+    <div>
+        <label for="EndDate">Дата окончания:</label>
+        <input type="date" id="EndDate" name="EndDate" required />
+    </div>
+    <div>
+        <label for="Priority">Приоритет:</label>
+        <input type="number" id="Priority" name="Priority" required />
+    </div>
+    <div>
+        <label for="ProjectManager">Руководитель проекта:</label>
+        <input type="text" id="ProjectManager" name="ProjectManager" required />
+    </div>
+    <button type="submit">Добавить проект</button>
+</form>
