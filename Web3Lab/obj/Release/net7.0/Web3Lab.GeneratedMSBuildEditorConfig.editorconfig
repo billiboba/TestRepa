@@ -62,6 +62,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/TaskPage/AddTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza1BhZ2VcQWRkVGFzay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/TaskPage/EditTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza1BhZ2VcRWRpdFRhc2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/TaskPage/Tasks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza1BhZ2VcVGFza3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,63 @@
+﻿@page
+@model Web3Lab.Pages.TaskPage.AddTaskModel
+@{
+    ViewData["Title"] = "Добавить задачу";
+}
+
+<h2>Добавить задачу</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name">Название задачи:</label>
+        <input type="text" class="form-control" asp-for="Name" required />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProjectId">Проект:</label>
+        <select asp-for="ProjectId" asp-items="Model.ProjectsSelectList" class="form-control" required>
+            <option value="">Выберите проект</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AuthorId">Автор задачи:</label>
+        <select asp-for="AuthorId" asp-items="Model.EmployeesSelectList" class="form-control" required>
+            <option value="">Выберите автора</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContractorId">Исполнитель задачи:</label>
+        <select asp-for="ContractorId" asp-items="Model.EmployeesSelectList" class="form-control" required>
+            <option value="">Выберите исполнителя</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status">Статус:</label>
+        <select asp-for="Status" class="form-control">
+            <option value="Todo">To Do</option>
+            <option value="InProgress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Comment">Комментарий:</label>
+        <textarea asp-for="Comment" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Priority">Приоритет:</label>
+        <input type="number" class="form-control" asp-for="Priority" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Добавить задачу</button>
+</form>

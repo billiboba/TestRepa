@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Lab3Logic\Lab3Logic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\TasksPage\" />
-  </ItemGroup>
-
 </Project>

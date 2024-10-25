@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Web3Lab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2fbb43807f540ce837c71e448a44ebde02327b39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c589d38bc3c6f37ca875bf8d7534fd870dc34c5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Web3Lab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Web3Lab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

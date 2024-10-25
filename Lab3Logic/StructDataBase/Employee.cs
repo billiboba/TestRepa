@@ -11,5 +11,6 @@
         public ICollection<ProjectEmployee> ProjectEmployees { get; set; }
         public ICollection<Task> AuthoredTasks { get; set; }
         public ICollection<Task> ContractorTasks { get; set; }
+        public string FullName => $"{FirstName} {LastName}";
     }
 }

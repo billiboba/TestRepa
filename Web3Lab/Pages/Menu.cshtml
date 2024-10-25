@@ -4,22 +4,35 @@
     ViewData["Title"] = "Меню управления";
 }
 
-<h1>Меню управления</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Меню управления</h1>
 
-@if (ViewData["Message"] != null)
-{
-    <p>@ViewData["Message"]</p>
-}
-<div style="display: flex; gap: 10px;">
-    <form method="get" asp-page="/ProjectPage/Projects">
-        <button type="submit" style="padding: 10px 20px; background-color: lightblue;">Проекты</button>
-    </form>
+    @if (ViewData["Message"] != null)
+    {
+        <div class="alert alert-info">
+            @ViewData["Message"]
+        </div>
+    }
 
-    <form method="get" asp-page="/EmployeePage/Employees">
-        <button type="submit" style="padding: 10px 20px; background-color: lightgreen;">Сотрудники</button>
-    </form>
+    <div class="d-flex justify-content-center">
+        <div class="btn-group" role="group">
+            <form method="get" asp-page="/ProjectPage/Projects">
+                <button type="submit" class="btn btn-primary btn-lg mx-2">
+                    <i class="fas fa-project-diagram"></i> Проекты
+                </button>
+            </form>
 
-    <form method="get" asp-page="/TaskPage/Tasks">
-        <button type="submit" style="padding: 10px 20px; background-color: lightcoral;">Задачи</button>
-    </form>
+            <form method="get" asp-page="/EmployeePage/Employees">
+                <button type="submit" class="btn btn-success btn-lg mx-2">
+                    <i class="fas fa-users"></i> Сотрудники
+                </button>
+            </form>
+
+            <form method="get" asp-page="/TaskPage/Tasks">
+                <button type="submit" class="btn btn-danger btn-lg mx-2">
+                    <i class="fas fa-tasks"></i> Задачи
+                </button>
+            </form>
+        </div>
+    </div>
 </div>

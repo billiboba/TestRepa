@@ -42,15 +42,33 @@ namespace Web3Lab.Pages.EmployeePage
 
         public IActionResult OnPostDeleteEmployee(int id)
         {
-            var employee = _context.Employees.Find(id);
+            var employee = _context.Employees
+                .Include(e => e.AuthoredTasks)
+                .Include(e => e.ContractorTasks) 
+                .FirstOrDefault(e => e.Id == id);
+
             if (employee != null)
             {
+                var tasksToRemove = _context.Tasks
+                    .Where(t => t.AuthorId == employee.Id || t.ContractorId == employee.Id)
+                    .ToList();
+
+                _context.Tasks.RemoveRange(tasksToRemove); 
+
                 _context.Employees.Remove(employee);
                 _context.SaveChanges();
+
+                TempData["SuccessMessage"] = "Сотрудник и связанные задачи успешно удалены!";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Сотрудник не найден!";
             }
 
-            TempData["SuccessMessage"] = "Сотрудник успешно удален!";
             return RedirectToPage();
         }
+
+
+
     }
 }

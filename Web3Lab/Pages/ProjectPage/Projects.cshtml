@@ -38,7 +38,8 @@
                 <th>Компания-исполнитель</th>
                 <th>Приоритет</th>
                 <th>Сотрудники</th>
-                <th>Действия</th>
+                <th>Задачи</th>
+                <th>Действия</th> 
             </tr>
         </thead>
         <tbody>
@@ -87,9 +88,44 @@
                                 </div>
                             </div>
                         </form>
+
                     </td>
 
                     <td>
+                        @if (project.Tasks.Any())
+                        {
+                            <ul class="list-unstyled">
+                                @foreach (var task in project.Tasks)
+                                {
+                                    <li class="mb-2">
+                                        @task.Name
+                                        <form method="post" asp-page-handler="RemoveTaskFromProject" class="d-inline">
+                                            <input type="hidden" name="projectId" value="@project.Id" />
+                                            <input type="hidden" name="taskId" value="@task.Id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                                        </form>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>Задач нет</p>
+                        }
+
+                        <form method="post" asp-page-handler="AddTaskToProject" class="mt-2">
+                            <input type="hidden" name="projectId" value="@project.Id" />
+                            <div class="input-group">
+                                <input type="text" name="NewTaskName" class="form-control" placeholder="Название задачи" required />
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-success">Добавить задачу</button>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+
+                    <td>
+                        <!-- Блок для редактирования и удаления проекта -->
                         <div class="d-flex flex-column">
                             <form method="post" asp-page-handler="EditProject" asp-route-id="@project.Id" class="mb-2">
                                 <button type="submit" class="btn btn-warning btn-sm">Редактировать</button>
@@ -100,6 +136,7 @@
                             </form>
                         </div>
                     </td>
+
                 </tr>
             }
         </tbody>

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using Task = Lab3Logic.StructDataBase.Task;
 
 namespace Web3Lab.Pages.ProjectPage
 {
@@ -25,7 +26,12 @@ namespace Web3Lab.Pages.ProjectPage
         [BindProperty]
         public int SelectedProjectId { get; set; }
         [BindProperty]
+        public int SelectedTaskId { get; set; } 
+        [BindProperty]
+        public string NewTaskName { get; set; } 
+        [BindProperty]
         public string SortOption { get; set; }
+
         public void OnGet()
         {
             LoadProjects();
@@ -37,6 +43,7 @@ namespace Web3Lab.Pages.ProjectPage
             Projects = _context.Projects
                 .Include(p => p.ProjectEmployees)
                     .ThenInclude(pe => pe.Employee)
+                .Include(p => p.Tasks)
                 .ToList();
         }
 
@@ -57,12 +64,13 @@ namespace Web3Lab.Pages.ProjectPage
         {
             var project = _context.Projects
                 .Include(p => p.ProjectEmployees)
+                .Include(p => p.Tasks)
                 .FirstOrDefault(p => p.Id == id);
 
             if (project != null)
             {
                 _context.ProjectEmployees.RemoveRange(project.ProjectEmployees);
-
+                _context.Tasks.RemoveRange(project.Tasks);
                 _context.Projects.Remove(project);
 
                 _context.SaveChanges();
@@ -76,35 +84,82 @@ namespace Web3Lab.Pages.ProjectPage
 
             return RedirectToPage();
         }
-        public IActionResult OnPostSortProjects()
+        public IActionResult OnPostRemoveEmployeeFromProject(int projectId, int employeeId)
         {
-            IQueryable<Project> query = _context.Projects
-                .Include(p => p.ProjectEmployees)
-                .ThenInclude(pe => pe.Employee);
+            var projectEmployee = _context.ProjectEmployees
+                .FirstOrDefault(pe => pe.ProjectId == projectId && pe.EmployeeId == employeeId);
 
-            switch (SortOption)
+            if (projectEmployee != null)
             {
-                case "Priority":
-                    query = query.OrderBy(p => p.Priority);
-                    break;
-                case "Name":
-                    query = query.OrderBy(p => p.Name);
-                    break;
-                case "Date":
-                    query = query.OrderBy(p => p.StartDate);
-                    break;
+                _context.ProjectEmployees.Remove(projectEmployee);
+
+                var tasksWithAuthor = _context.Tasks.Where(t => t.AuthorId == employeeId).ToList();
+                var tasksWithContractor = _context.Tasks.Where(t => t.ContractorId == employeeId).ToList();
+
+                _context.Tasks.RemoveRange(tasksWithAuthor);
+                _context.Tasks.RemoveRange(tasksWithContractor);
+
+                _context.SaveChanges();
+                TempData["SuccessMessage"] = "Сотрудник и связанные задачи успешно удалены!";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Сотрудник не найден в проекте.";
             }
 
-            Projects = query.ToList();
-            LoadAllEmployees();
-
-            return Page();
+            return RedirectToPage();
         }
 
 
+        public IActionResult OnPostAddTaskToProject(int projectId)
+        {
+            if (string.IsNullOrWhiteSpace(NewTaskName))
+            {
+                TempData["ErrorMessage"] = "Введите название задачи для добавления в проект.";
+                return RedirectToPage();
+            }
+
+            if (SelectedEmployeeId == 0)
+            {
+                TempData["ErrorMessage"] = "Пожалуйста, выберите автора задачи.";
+                return RedirectToPage();
+            }
+
+            var project = _context.Projects.Find(projectId);
+            if (project != null)
+            {
+                var newTask = new Task
+                {
+                    Name = NewTaskName,
+                    ProjectId = projectId,
+                    AuthorId = SelectedEmployeeId
+                };
+
+                _context.Tasks.Add(newTask);
+                _context.SaveChanges();
+                TempData["SuccessMessage"] = "Задача успешно добавлена в проект!";
+            }
+
+            return RedirectToPage();
+        }
+
+
+        public IActionResult OnPostRemoveTaskFromProject(int projectId, int taskId)
+        {
+            var task = _context.Tasks.FirstOrDefault(t => t.Id == taskId && t.ProjectId == projectId);
+
+            if (task != null)
+            {
+                _context.Tasks.Remove(task);
+                _context.SaveChanges();
+                TempData["SuccessMessage"] = "Задача успешно удалена из проекта!";
+            }
+
+            return RedirectToPage();
+        }
         public IActionResult OnPostAddEmployeeToProject(int projectId)
         {
-            if (SelectedEmployeeId == 0) 
+            if (SelectedEmployeeId == 0)
             {
                 TempData["ErrorMessage"] = "Пожалуйста, выберите сотрудника для добавления в проект.";
                 return RedirectToPage();
@@ -126,23 +181,38 @@ namespace Web3Lab.Pages.ProjectPage
                 _context.SaveChanges();
                 TempData["SuccessMessage"] = "Сотрудник успешно добавлен в проект!";
             }
-
-            return RedirectToPage(); 
-        }
-
-
-        public IActionResult OnPostRemoveEmployeeFromProject(int projectId, int employeeId)
-        {
-            var projectEmployee = _context.ProjectEmployees
-                .FirstOrDefault(pe => pe.ProjectId == projectId && pe.EmployeeId == employeeId);
-
-            if (projectEmployee != null)
+            else
             {
-                _context.ProjectEmployees.Remove(projectEmployee);
-                _context.SaveChanges();
+                TempData["ErrorMessage"] = "Не удалось добавить сотрудника в проект.";
             }
 
             return RedirectToPage();
+        }
+
+        public IActionResult OnPostSortProjects()
+        {
+            IQueryable<Project> query = _context.Projects
+                .Include(p => p.ProjectEmployees)
+                    .ThenInclude(pe => pe.Employee)
+                .Include(p => p.Tasks);
+
+            switch (SortOption)
+            {
+                case "Priority":
+                    query = query.OrderBy(p => p.Priority);
+                    break;
+                case "Name":
+                    query = query.OrderBy(p => p.Name);
+                    break;
+                case "Date":
+                    query = query.OrderBy(p => p.StartDate);
+                    break;
+            }
+
+            Projects = query.ToList();
+            LoadAllEmployees();
+
+            return Page();
         }
     }
 }

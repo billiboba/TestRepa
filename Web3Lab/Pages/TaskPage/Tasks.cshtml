@@ -1,0 +1,70 @@
+﻿@page
+@model Web3Lab.Pages.TaskPage.TaskModel
+@{
+    ViewData["Title"] = "Управление задачами";
+}
+
+<h2 class="mb-4">Управление задачами</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="mb-4">
+    <form method="get" asp-page="AddTask">
+        <button type="submit" class="btn btn-primary">Добавить задачу</button>
+    </form>
+</div>
+
+@if (Model.Tasks.Any())
+{
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>Название</th>
+                <th>Автор</th>
+                <th>Исполнитель</th>
+                <th>Статус</th>
+                <th>Приоритет</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model.Tasks)
+            {
+                <tr>
+                    <td>@task.Name</td>
+                    <td>@(task.Author?.FirstName ?? "N/A") @(task.Author?.LastName ?? "")</td>
+                    <td>@(task.Contractor?.FirstName ?? "N/A") @(task.Contractor?.LastName ?? "")</td>
+                    <td>@task.Status</td>
+                    <td>@task.Priority</td>
+                    <td>
+                        <div class="d-flex">
+                            <form method="get" asp-page="EditTask" asp-route-id="@task.Id" class="mr-2">
+                                <button type="submit" class="btn btn-warning">Редактировать</button>
+                            </form>
+
+                            <form method="post" asp-page-handler="DeleteTask" asp-route-id="@task.Id">
+                                <button type="submit" class="btn btn-danger">Удалить</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Задач нет.</p>
+}
