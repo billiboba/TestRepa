@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Web3Lab.Pages
+namespace Web3Lab.Pages.ProjectPage
 {
     public class EditProjectModel : PageModel
     {
@@ -50,7 +50,7 @@ namespace Web3Lab.Pages
             {
                 foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
                 {
-                    Console.WriteLine(error.ErrorMessage); 
+                    Console.WriteLine(error.ErrorMessage);
                 }
                 return Page();
             }
@@ -88,10 +88,5 @@ namespace Web3Lab.Pages
 
             return RedirectToPage("Projects");
         }
-
-
-
-
-
     }
 }

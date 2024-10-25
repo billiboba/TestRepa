@@ -3,7 +3,7 @@ using Lab3Logic.StructDataBase;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web3Lab.Pages
+namespace Web3Lab.Pages.ProjectPage
 {
     public class AddProjectModel : PageModel
     {
@@ -14,7 +14,6 @@ namespace Web3Lab.Pages
             _context = context;
         }
 
-        // —войства дл€ прив€зки данных формы
         [BindProperty]
         public string Name { get; set; }
         [BindProperty]
@@ -30,7 +29,6 @@ namespace Web3Lab.Pages
         [BindProperty]
         public string ProjectManager { get; set; }
 
-        // ћетод дл€ обработки данных формы при POST-запросе
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
@@ -38,7 +36,6 @@ namespace Web3Lab.Pages
                 return Page();
             }
 
-            // —оздание нового проекта с полученными данными
             var project = new Project
             {
                 Name = Name,
@@ -50,14 +47,11 @@ namespace Web3Lab.Pages
                 ProjectManager = ProjectManager
             };
 
-            // ƒобавление проекта в базу данных
             _context.Projects.Add(project);
             _context.SaveChanges();
 
-            // ”станавливаем сообщение об успешном добавлении проекта
             TempData["SuccessMessage"] = "ѕроект успешно добавлен!";
 
-            // ѕеренаправление на страницу списка проектов
             return RedirectToPage("Projects");
         }
     }

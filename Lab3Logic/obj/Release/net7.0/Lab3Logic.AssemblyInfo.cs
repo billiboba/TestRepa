@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lab3Logic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2fbb43807f540ce837c71e448a44ebde02327b39")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lab3Logic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lab3Logic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,57 @@
+﻿@page
+@model Web3Lab.Pages.EmployeePage.EmployeesModel
+@{
+    ViewData["Title"] = "Управление сотрудниками";
+}
+
+<h2>Управление сотрудниками</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="get" asp-page="AddEmployee">
+    <button type="submit">Добавить сотрудника</button>
+</form>
+
+@if (Model.Employees.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Email</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model.Employees)
+            {
+                <tr>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.MiddleName</td>
+                    <td>@employee.Email</td>
+                    <td>
+                        <form method="post" asp-page-handler="EditEmployee" asp-route-id="@employee.Id">
+                            <button type="submit">Редактировать</button>
+                        </form>
+
+                        <form method="post" asp-page-handler="DeleteEmployee" asp-route-id="@employee.Id">
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Сотрудников нет.</p>
+}

@@ -1,0 +1,43 @@
+﻿@page "{id:int}"
+@model EditEmployeeModel
+@{
+    ViewData["Title"] = "Редактировать сотрудника";
+}
+
+<h2>Редактировать сотрудника</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" style="font-size: 24px; font-weight: bold;">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" style="font-size: 24px; font-weight: bold;">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Employee.Id" />
+
+    <div>
+        <label for="FirstName">Имя:</label>
+        <input type="text" id="FirstName" asp-for="Employee.FirstName" required />
+    </div>
+    <div>
+        <label for="LastName">Фамилия:</label>
+        <input type="text" id="LastName" asp-for="Employee.LastName" required />
+    </div>
+    <div>
+        <label for="MiddleName">Отчество:</label>
+        <input type="text" id="MiddleName" asp-for="Employee.MiddleName" required />
+    </div>
+    <div>
+        <label for="Email">Почта:</label>
+        <input type="text" id="Email" asp-for="Employee.Email" required />
+    </div>
+    <button type="submit">Сохранить изменения</button>
+</form>

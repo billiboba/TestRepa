@@ -18,6 +18,9 @@ namespace Lab3Logic.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer("Server=(localdb)\\Local;Database=Lab3;Trusted_Connection=True;Encrypt=False;",
+                b => b.MigrationsAssembly("Lab3Logic"));
+
             optionsBuilder.EnableSensitiveDataLogging();
         }
 

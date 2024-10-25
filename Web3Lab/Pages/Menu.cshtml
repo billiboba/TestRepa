@@ -10,9 +10,16 @@
 {
     <p>@ViewData["Message"]</p>
 }
+<div style="display: flex; gap: 10px;">
+    <form method="get" asp-page="/ProjectPage/Projects">
+        <button type="submit" style="padding: 10px 20px; background-color: lightblue;">Проекты</button>
+    </form>
 
-<form method="post">
-    <button type="submit" asp-page-handler="Projects" style="padding: 10px 20px; background-color: lightblue;">Проекты</button>
-    <button type="submit" asp-page-handler="Employees" style="padding: 10px 20px; background-color: lightgreen;">Сотрудники</button>
-    <button type="submit" asp-page-handler="Tasks" style="padding: 10px 20px; background-color: lightcoral;">Задачи</button>
-</form>
+    <form method="get" asp-page="/EmployeePage/Employees">
+        <button type="submit" style="padding: 10px 20px; background-color: lightgreen;">Сотрудники</button>
+    </form>
+
+    <form method="get" asp-page="/TaskPage/Tasks">
+        <button type="submit" style="padding: 10px 20px; background-color: lightcoral;">Задачи</button>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+﻿@page
+@model AddEmployeeModel
+@{
+    ViewData["Title"] = "Добавить сотрудника";
+}
+
+<h2>Добавить сотрудника</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post">
+    <div>
+        <label for="FirstName">Имя:</label>
+        <input type="text" id="FirstName" name="FirstName" required />
+    </div>
+    <div>
+        <label for="LastName">Фамилия:</label>
+        <input type="text" id="LastName" name="LastName" required />
+    </div>
+    <div>
+        <label for="MiddleName">Отчество:</label>
+        <input type="text" id="MiddleName" name="MiddleName" required />
+    </div>
+    <div>
+        <label for="Email">Почта:</label>
+        <input type="text" id="Email" name="Email" required />
+    </div>
+    <button type="submit">Добавить сотрудника</button>
+</form>

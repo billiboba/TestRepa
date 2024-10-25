@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Lab3BD.Migrations
+namespace Lab3Logic.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -17,12 +17,12 @@ namespace Lab3BD.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "7.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.Employee", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace Lab3BD.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.Project", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,7 +89,7 @@ namespace Lab3BD.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.ProjectEmployee", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.ProjectEmployee", b =>
                 {
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
@@ -104,7 +104,7 @@ namespace Lab3BD.Migrations
                     b.ToTable("ProjectEmployees");
                 });
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.Task", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.Task", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -113,6 +113,7 @@ namespace Lab3BD.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("AuthorId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Comment")
@@ -120,6 +121,7 @@ namespace Lab3BD.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ContractorId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -130,6 +132,7 @@ namespace Lab3BD.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("ProjectId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -143,18 +146,18 @@ namespace Lab3BD.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Tasks", (string)null);
+                    b.ToTable("Tasks");
                 });
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.ProjectEmployee", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.ProjectEmployee", b =>
                 {
-                    b.HasOne("Lab3BD.StructDataBase.Employee", "Employee")
+                    b.HasOne("Lab3Logic.StructDataBase.Employee", "Employee")
                         .WithMany("ProjectEmployees")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Lab3BD.StructDataBase.Project", "Project")
+                    b.HasOne("Lab3Logic.StructDataBase.Project", "Project")
                         .WithMany("ProjectEmployees")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -165,21 +168,25 @@ namespace Lab3BD.Migrations
                     b.Navigation("Project");
                 });
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.Task", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.Task", b =>
                 {
-                    b.HasOne("Lab3BD.StructDataBase.Employee", "Author")
+                    b.HasOne("Lab3Logic.StructDataBase.Employee", "Author")
                         .WithMany("AuthoredTasks")
                         .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.HasOne("Lab3BD.StructDataBase.Employee", "Contractor")
+                    b.HasOne("Lab3Logic.StructDataBase.Employee", "Contractor")
                         .WithMany("ContractorTasks")
                         .HasForeignKey("ContractorId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.HasOne("Lab3BD.StructDataBase.Project", "Project")
+                    b.HasOne("Lab3Logic.StructDataBase.Project", "Project")
                         .WithMany("Tasks")
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Author");
 
@@ -188,7 +195,7 @@ namespace Lab3BD.Migrations
                     b.Navigation("Project");
                 });
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.Employee", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.Employee", b =>
                 {
                     b.Navigation("AuthoredTasks");
 
@@ -197,7 +204,7 @@ namespace Lab3BD.Migrations
                     b.Navigation("ProjectEmployees");
                 });
 
-            modelBuilder.Entity("Lab3BD.StructDataBase.Project", b =>
+            modelBuilder.Entity("Lab3Logic.StructDataBase.Project", b =>
                 {
                     b.Navigation("ProjectEmployees");
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Web3Lab.Pages
+namespace Web3Lab.Pages.ProjectPage
 {
     public class ProjectsModel : PageModel
     {

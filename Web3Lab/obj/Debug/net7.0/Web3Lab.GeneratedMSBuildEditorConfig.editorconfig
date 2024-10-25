@@ -9,57 +9,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Web3Lab
 build_property.RootNamespace = Web3Lab
-build_property.ProjectDir = C:\Users\info\source\repos\billiboba\TestRepa\Web3Lab\
+build_property.ProjectDir = C:\Users\Roman\Source\Repos\billiboba\TestRepa\Web3Lab\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\info\source\repos\billiboba\TestRepa\Web3Lab
+build_property.MSBuildProjectDirectory = C:\Users\Roman\Source\Repos\billiboba\TestRepa\Web3Lab
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/AddProject.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUHJvamVjdC5jc2h0bWw=
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/EmployeePage/AddEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVQYWdlXEFkZEVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/EditProject.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByb2plY3QuY3NodG1s
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/EmployeePage/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVQYWdlXEVkaXRFbXBsb3llZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Employees.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVzLmNzaHRtbA==
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/EmployeePage/Employees.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVQYWdlXEVtcGxveWVlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Error.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Index.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Menu.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Privacy.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Projects.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdHMuY3NodG1s
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/ProjectPage/AddProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFBhZ2VcQWRkUHJvamVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/ProjectPage/EditProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFBhZ2VcRWRpdFByb2plY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/ProjectPage/Projects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFBhZ2VcUHJvamVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/_ViewImports.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/_ViewStart.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/info/source/repos/billiboba/TestRepa/Web3Lab/Pages/Shared/_Layout.cshtml]
+[C:/Users/Roman/Source/Repos/billiboba/TestRepa/Web3Lab/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-mmiszfoek7
