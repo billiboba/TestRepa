@@ -10,3 +10,15 @@ C:\Users\Roman\source\repos\Web3Lab\Lab3Logic\obj\Debug\net7.0\Lab3Logic.dll
 C:\Users\Roman\source\repos\Web3Lab\Lab3Logic\obj\Debug\net7.0\refint\Lab3Logic.dll
 C:\Users\Roman\source\repos\Web3Lab\Lab3Logic\obj\Debug\net7.0\Lab3Logic.pdb
 C:\Users\Roman\source\repos\Web3Lab\Lab3Logic\obj\Debug\net7.0\ref\Lab3Logic.dll
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\bin\Debug\net7.0\Lab3Logic.deps.json
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\bin\Debug\net7.0\Lab3Logic.dll
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\bin\Debug\net7.0\Lab3Logic.pdb
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\Lab3Logic.csproj.AssemblyReference.cache
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\Lab3Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\Lab3Logic.AssemblyInfoInputs.cache
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\Lab3Logic.AssemblyInfo.cs
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\Lab3Logic.csproj.CoreCompileInputs.cache
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\Lab3Logic.dll
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\refint\Lab3Logic.dll
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\Lab3Logic.pdb
+C:\Users\info\Source\Repos\billiboba\TestRepa\Lab3Logic\obj\Debug\net7.0\ref\Lab3Logic.dll

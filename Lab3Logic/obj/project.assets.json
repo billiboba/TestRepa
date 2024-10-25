@@ -3180,30 +3180,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Roman\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\info\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roman\\source\\repos\\Web3Lab\\Lab3Logic\\Lab3Logic.csproj",
+      "projectUniqueName": "C:\\Users\\info\\Source\\Repos\\billiboba\\TestRepa\\Lab3Logic\\Lab3Logic.csproj",
       "projectName": "Lab3Logic",
-      "projectPath": "C:\\Users\\Roman\\source\\repos\\Web3Lab\\Lab3Logic\\Lab3Logic.csproj",
-      "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roman\\source\\repos\\Web3Lab\\Lab3Logic\\obj\\",
+      "projectPath": "C:\\Users\\info\\Source\\Repos\\billiboba\\TestRepa\\Lab3Logic\\Lab3Logic.csproj",
+      "packagesPath": "C:\\Users\\info\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\info\\Source\\Repos\\billiboba\\TestRepa\\Lab3Logic\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\info\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3216,11 +3212,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3252,7 +3243,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

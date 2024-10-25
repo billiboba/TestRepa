@@ -32,9 +32,6 @@ namespace Web3Lab.Pages
                     .ToList();
             }
 
-
-
-
             if (Project == null)
             {
                 Console.WriteLine("Проект не найден!");
