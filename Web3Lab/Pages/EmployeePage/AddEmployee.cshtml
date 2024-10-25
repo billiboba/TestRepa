@@ -4,31 +4,49 @@
     ViewData["Title"] = "Добавить сотрудника";
 }
 
-<h2>Добавить сотрудника</h2>
+<div class="container mt-4">
+    <h2 class="mb-4">Добавить сотрудника</h2>
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
 
-<form method="post">
-    <div>
-        <label for="FirstName">Имя:</label>
-        <input type="text" id="FirstName" name="FirstName" required />
-    </div>
-    <div>
-        <label for="LastName">Фамилия:</label>
-        <input type="text" id="LastName" name="LastName" required />
-    </div>
-    <div>
-        <label for="MiddleName">Отчество:</label>
-        <input type="text" id="MiddleName" name="MiddleName" required />
-    </div>
-    <div>
-        <label for="Email">Почта:</label>
-        <input type="text" id="Email" name="Email" required />
-    </div>
-    <button type="submit">Добавить сотрудника</button>
-</form>
+    <form method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label asp-for="FirstName">Имя:</label>
+            <input type="text" class="form-control" id="FirstName" name="FirstName" required />
+            <div class="invalid-feedback">
+                Пожалуйста, введите имя.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName">Фамилия:</label>
+            <input type="text" class="form-control" id="LastName" name="LastName" required />
+            <div class="invalid-feedback">
+                Пожалуйста, введите фамилию.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MiddleName">Отчество:</label>
+            <input type="text" class="form-control" id="MiddleName" name="MiddleName" required />
+            <div class="invalid-feedback">
+                Пожалуйста, введите отчество.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email">Почта:</label>
+            <input type="email" class="form-control" id="Email" name="Email" required />
+            <div class="invalid-feedback">
+                Пожалуйста, введите корректный email.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Добавить сотрудника</button>
+    </form>
+</div>

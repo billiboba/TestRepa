@@ -4,7 +4,7 @@
     ViewData["Title"] = "Добавить проект";
 }
 
-<h2>Добавить проект</h2>
+<h2 class="mb-4">Добавить проект</h2>
 
 @if (TempData["SuccessMessage"] != null)
 {
@@ -14,33 +14,41 @@
 }
 
 <form method="post">
-    <div>
-        <label for="Name">Название проекта:</label>
-        <input type="text" id="Name" name="Name" required />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name">Название проекта:</label>
+        <input type="text" class="form-control" asp-for="Name" required />
     </div>
-    <div>
-        <label for="ClientCompany">Компания-заказчик:</label>
-        <input type="text" id="ClientCompany" name="ClientCompany" required />
+
+    <div class="form-group">
+        <label asp-for="ClientCompany">Компания-заказчик:</label>
+        <input type="text" class="form-control" asp-for="ClientCompany" required />
     </div>
-    <div>
-        <label for="ContractorCompany">Компания-исполнитель:</label>
-        <input type="text" id="ContractorCompany" name="ContractorCompany" required />
+
+    <div class="form-group">
+        <label asp-for="ContractorCompany">Компания-исполнитель:</label>
+        <input type="text" class="form-control" asp-for="ContractorCompany" required />
     </div>
-    <div>
-        <label for="StartDate">Дата начала:</label>
-        <input type="date" id="StartDate" name="StartDate" required />
+
+    <div class="form-group">
+        <label asp-for="StartDate">Дата начала:</label>
+        <input type="date" class="form-control" asp-for="StartDate" required />
     </div>
-    <div>
-        <label for="EndDate">Дата окончания:</label>
-        <input type="date" id="EndDate" name="EndDate" required />
+
+    <div class="form-group">
+        <label asp-for="EndDate">Дата окончания:</label>
+        <input type="date" class="form-control" asp-for="EndDate" required />
     </div>
-    <div>
-        <label for="Priority">Приоритет:</label>
-        <input type="number" id="Priority" name="Priority" required />
+
+    <div class="form-group">
+        <label asp-for="Priority">Приоритет:</label>
+        <input type="number" class="form-control" asp-for="Priority" required />
     </div>
-    <div>
-        <label for="ProjectManager">Руководитель проекта:</label>
-        <input type="text" id="ProjectManager" name="ProjectManager" required />
+
+    <div class="form-group">
+        <label asp-for="ProjectManager">Руководитель проекта:</label>
+        <input type="text" class="form-control" asp-for="ProjectManager" required />
     </div>
-    <button type="submit">Добавить проект</button>
+
+    <button type="submit" class="btn btn-primary">Добавить проект</button>
 </form>

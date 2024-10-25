@@ -1,10 +1,10 @@
 ﻿@page
-@model ProjectsModel
+@model Web3Lab.Pages.ProjectPage.ProjectsModel
 @{
     ViewData["Title"] = "Управление проектами";
 }
 
-<h2>Управление проектами</h2>
+<h2 class="mb-4">Управление проектами</h2>
 
 @if (TempData["SuccessMessage"] != null)
 {
@@ -13,21 +13,31 @@
     </div>
 }
 
-<form method="post" asp-page-handler="AddProject">
-    <button type="submit">Добавить проект</button>
-</form>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="mb-4">
+    <form method="post" asp-page-handler="AddProject" class="d-inline">
+        <button type="submit" class="btn btn-primary">Добавить проект</button>
+    </form>
+</div>
 
 <h3>Список проектов</h3>
 
 @if (Model.Projects.Any())
 {
-    <table>
-        <thead>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
             <tr>
                 <th>Название</th>
                 <th>Компания-заказчик</th>
                 <th>Компания-исполнитель</th>
                 <th>Приоритет</th>
+                <th>Сотрудники</th>
                 <th>Действия</th>
             </tr>
         </thead>
@@ -39,14 +49,56 @@
                     <td>@project.ClientCompany</td>
                     <td>@project.ContractorCompany</td>
                     <td>@project.Priority</td>
-                    <td>
-                        <form method="post" asp-page-handler="EditProject" asp-route-id="@project.Id">
-                            <button type="submit">Редактировать</button>
-                        </form>
 
-                        <form method="post" asp-page-handler="DeleteProject" asp-route-id="@project.Id">
-                            <button type="submit">Удалить</button>
+                    <td>
+                        @if (project.ProjectEmployees.Any())
+                        {
+                            <ul class="list-unstyled">
+                                @foreach (var projectEmployee in project.ProjectEmployees)
+                                {
+                                    <li class="mb-2">
+                                        @projectEmployee.Employee.FirstName @projectEmployee.Employee.LastName
+                                        <form method="post" asp-page-handler="RemoveEmployeeFromProject" class="d-inline">
+                                            <input type="hidden" name="projectId" value="@project.Id" />
+                                            <input type="hidden" name="employeeId" value="@projectEmployee.EmployeeId" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                                        </form>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>Сотрудников нет</p>
+                        }
+
+                        <form method="post" asp-page-handler="AddEmployeeToProject" class="mt-2">
+                            <input type="hidden" name="projectId" value="@project.Id" />
+                            <div class="input-group">
+                                <select asp-for="SelectedEmployeeId" class="form-control">
+                                    <option value="">Выберите сотрудника</option>
+                                    @foreach (var employee in Model.AllEmployees)
+                                    {
+                                        <option value="@employee.Id">@employee.FirstName @employee.LastName</option>
+                                    }
+                                </select>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-success">Добавить</button>
+                                </div>
+                            </div>
                         </form>
+                    </td>
+
+                    <td>
+                        <div class="d-flex flex-column">
+                            <form method="post" asp-page-handler="EditProject" asp-route-id="@project.Id" class="mb-2">
+                                <button type="submit" class="btn btn-warning btn-sm">Редактировать</button>
+                            </form>
+
+                            <form method="post" asp-page-handler="DeleteProject" asp-route-id="@project.Id">
+                                <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             }
@@ -59,12 +111,12 @@ else
 }
 
 <h3>Сортировка проектов</h3>
-<form method="post" asp-page-handler="SortProjects">
-    <label for="SortOption">Выберите способ сортировки:</label>
-    <select id="SortOption" name="SortOption">
+<form method="post" asp-page-handler="SortProjects" class="form-inline">
+    <label for="SortOption" class="mr-2">Выберите способ сортировки:</label>
+    <select id="SortOption" name="SortOption" class="form-control mr-2">
         <option value="Priority">По приоритету</option>
         <option value="Name">По названию</option>
         <option value="Date">По дате</option>
     </select>
-    <button type="submit">Отсортировать</button>
+    <button type="submit" class="btn btn-primary">Отсортировать</button>
 </form>

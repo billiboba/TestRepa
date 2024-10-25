@@ -4,54 +4,62 @@
     ViewData["Title"] = "Управление сотрудниками";
 }
 
-<h2>Управление сотрудниками</h2>
+<div class="container mt-4">
+    <h2 class="mb-4">Управление сотрудниками</h2>
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <div class="mb-3">
+        <form method="get" asp-page="AddEmployee">
+            <button type="submit" class="btn btn-primary">Добавить сотрудника</button>
+        </form>
     </div>
-}
 
-<form method="get" asp-page="AddEmployee">
-    <button type="submit">Добавить сотрудника</button>
-</form>
-
-@if (Model.Employees.Any())
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>Отчество</th>
-                <th>Email</th>
-                <th>Действия</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var employee in Model.Employees)
-            {
+    @if (Model.Employees.Any())
+    {
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
                 <tr>
-                    <td>@employee.FirstName</td>
-                    <td>@employee.LastName</td>
-                    <td>@employee.MiddleName</td>
-                    <td>@employee.Email</td>
-                    <td>
-                        <form method="post" asp-page-handler="EditEmployee" asp-route-id="@employee.Id">
-                            <button type="submit">Редактировать</button>
-                        </form>
-
-                        <form method="post" asp-page-handler="DeleteEmployee" asp-route-id="@employee.Id">
-                            <button type="submit">Удалить</button>
-                        </form>
-                    </td>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Отчество</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Действия</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>Сотрудников нет.</p>
-}
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                        <td>@employee.FirstName</td>
+                        <td>@employee.LastName</td>
+                        <td>@employee.MiddleName</td>
+                        <td>@employee.Email</td>
+                        <td>
+                            <div class="d-flex justify-content-around">
+                                <form method="post" asp-page-handler="EditEmployee" asp-route-id="@employee.Id">
+                                    <button type="submit" class="btn btn-warning btn-sm">Редактировать</button>
+                                </form>
+
+                                <form method="post" asp-page-handler="DeleteEmployee" asp-route-id="@employee.Id">
+                                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <p>Сотрудников нет.</p>
+        </div>
+    }
+</div>
